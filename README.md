@@ -1,2 +1,2 @@
-# PowerBI_project
+# regional-productsales-dashboard-powerbi
 My project demonstrating my PowerBI skills
