@@ -48,8 +48,8 @@ The analysis covered:
 - Revenue by payment method.
 - Product-wise sales performance.
 
-**SQL Script:** [View SQL Analysis](sql/sales_kpi_analysis.sql)
-
+**SQL Script:** - [Sales KPI Analysis](sql/data/sales_kpi_analysis.sql)
+                - [Sales Performance Analysis](sql/data/sales_performance_analysis.sql)
 ### 3. KPI Development
 
 Created six key performance indicators in Power BI using DAX measures:
