@@ -50,6 +50,7 @@ The analysis covered:
 
 **SQL Script:** - [Sales KPI Analysis](sql/data/sales_kpi_analysis.sql)
                 - [Sales Performance Analysis](sql/data/sales_performance_analysis.sql)
+
 ### 3. KPI Development
 
 Created six key performance indicators in Power BI using DAX measures:
@@ -82,9 +83,9 @@ The dashboard provides an overview of sales performance through KPI cards, chart
 
 ### Dashboard Preview
 
-![Regional Product Sales Analysis Dashboard](power%20bi/dashboard_preview.png)
+![Regional Product Sales Analysis Dashboard](powerbi/data/dashboard_preview.png)
 
-**Power BI File:** [View / Download Dashboard](power%20bi/dashboard.pbix)
+**Power BI File:** - [View / Download Power BI Dashboard](powerbi/data/dashboard.pbix)
 
 ## Key Business Insights
 
@@ -97,7 +98,7 @@ Some of the important findings from the analysis include:
 - **Payment Methods:** Online payments generated the highest revenue, followed by Cash.
 - **Product Performance:** Tablet generated the highest revenue, closely followed by Laptop and Printer.
 
-For detailed observations and business recommendations, see [Business Insights](sql/business_insights.md).
+For detailed observations and business recommendations, see - [View Business Insights](Insights/sales_business_insights.md)
 
 ## Repository Structure
 
@@ -109,11 +110,11 @@ regional-productsales-analysis-sql-powerbi/
 ├── insights
 │   ├── sales_business_insights.md
 |
-├── sql/
+├── sql/data
 │   ├── sales_kpi_analysis.sql
 │   └── sales_performance_analysis.sql
 │
-└── power bi/
+└── power bi/data
     ├── dashboard.pbix
     └── dashboard_preview.png
 ```
