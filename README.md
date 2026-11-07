@@ -111,7 +111,7 @@ regional-productsales-analysis-sql-powerbi/
 |
 ├── sql/
 │   ├── sales_kpi_analysis.sql
-│   └── business_insights.md
+│   └── sales_performance_analysis.sql
 │
 └── power bi/
     ├── dashboard.pbix
