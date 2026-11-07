@@ -17,47 +17,59 @@ KPIs:
 */
 
 -- 1. TOTAL REVENUE
-select sum(p."TotalPrice") as Total_Revenue
-from product_sales_region as p ;
+SELECT
+	sum(p."TotalPrice") AS Total_Revenue
+FROM
+	product_sales_region AS p ;
 
 -- 2. TOTAL ORDERS
-select count( distinct psr."OrderID" ) as Total_Orders
-from product_sales_region psr ;
+SELECT
+	count( DISTINCT psr."OrderID" ) AS Total_Orders
+FROM
+	product_sales_region psr ;
 
 -- 3. TOTAL QUANTITY SOLD
-select sum(psr."Quantity" ) as Total_Quantity_Sold
-from product_sales_region psr;
+SELECT
+	sum(psr."Quantity" ) AS Total_Quantity_Sold
+FROM
+	product_sales_region psr;
 
 -- 4. RETURN RATE (%)
-select
-round(100*(sum( psr."Returned" )/ count( distinct psr."OrderID" )),2) as Return_rate
-from product_sales_region psr; 
+SELECT
+	round(100 *(sum( psr."Returned" )/ count( DISTINCT psr."OrderID" )), 2) AS Return_rate
+FROM
+	product_sales_region psr;
 
 -- 5. AVERAGE ORDER VALUE
-select round(
-			sum(psr."TotalPrice")::NUMERIC/ 
-			count( distinct psr."OrderID"),2)
-			as Average_Order_value
-from product_sales_region psr ;
+SELECT
+	round(
+			sum(psr."TotalPrice")::NUMERIC / 
+			count( DISTINCT psr."OrderID"), 2)
+			AS Average_Order_value
+FROM
+	product_sales_region psr ;
 
 -- 6. YEAR-OVER-YEAR REVENUE GROWTH (%)
-with yearly_revenue as (
-select 
-        sum(psr."TotalPrice" ) as revenue,
-		extract(year from "OrderDate") as year		
-from product_sales_region psr 
-group by extract(year from "OrderDate")
+WITH yearly_revenue AS (
+SELECT
+	sum(psr."TotalPrice" ) AS revenue,
+		EXTRACT(YEAR FROM "OrderDate") AS YEAR
+FROM
+	product_sales_region psr
+GROUP BY
+	EXTRACT(YEAR FROM "OrderDate")
 ),
-    revenue_growth as(
-    select "year", "revenue",
-    	lag("revenue") over(order by "year") as previous_revenue
-    from yearly_revenue
+    revenue_growth AS(
+    SELECT "year", "revenue",
+    	lag("revenue") OVER(ORDER BY "year") AS previous_revenue
+    FROM yearly_revenue
     )
- select year,
- 		ROUND(
+ SELECT
+	YEAR,
+	ROUND(
         (("revenue" - "previous_revenue") /
         NULLIF("previous_revenue", 0))::NUMERIC * 100,
         2
     ) AS revenue_growth_percentage
- from revenue_growth;
-
+FROM
+	revenue_growth;
